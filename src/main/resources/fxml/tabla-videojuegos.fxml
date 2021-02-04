@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import mx.unam.ciencias.icc.fx.*?>
+
+<GridPane alignment="CENTER" hgap="10.0" vgap="10.0"
+          fx:controller="mx.unam.ciencias.icc.fx.ControladorTablaVideojuegos"
+          xmlns:fx="http://javafx.com/fxml">
+  <padding>
+    <Insets bottom="10.0" left="10.0" right="10.0" top="0.0" />
+  </padding>
+  <TableView fx:id="tabla" GridPane.columnIndex="0" GridPane.rowIndex="1"
+             GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+    <columnResizePolicy>
+      <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+    </columnResizePolicy>
+    <columns>
+      <TableColumn fx:id="columnaNombre" text="Nombre">
+        <cellValueFactory>
+          <PropertyValueFactory property="nombre" />
+        </cellValueFactory>
+      </TableColumn>
+      <TableColumn fx:id="columnaYear" text="Año"
+                   style="-fx-alignment: CENTER;">
+        <cellFactory>
+          <FabricaFormatoCelda formato="\%04d" />
+        </cellFactory>
+        <cellValueFactory>
+          <PropertyValueFactory property="year" />
+        </cellValueFactory>
+      </TableColumn>
+      <TableColumn fx:id="columnaPrecio" text="Precio"
+                   style="-fx-alignment: CENTER;">
+        <cellFactory>
+          <FabricaFormatoCelda formato="\%2.2f" />
+        </cellFactory>
+        <cellValueFactory>
+          <PropertyValueFactory property="precio" />
+        </cellValueFactory>
+      </TableColumn>
+      <TableColumn fx:id="columnaMarca" text="Marca"
+                   style="-fx-alignment: CENTER;">
+        <cellValueFactory>
+          <PropertyValueFactory property="marca" />
+        </cellValueFactory>
+      </TableColumn>
+      <TableColumn fx:id="columnaSaga" text="Saga"
+                   style="-fx-alignment: CENTER;">
+        <cellValueFactory>
+          <PropertyValueFactory property="saga" />
+        </cellValueFactory>
+      </TableColumn>
+    </columns>
+    <sortOrder>
+      <fx:reference source="columnaNombre" />
+    </sortOrder>
+  </TableView>
+</GridPane>
